@@ -30,6 +30,14 @@ body {
     -webkit-font-smoothing:antialiased !important;
 }
 
+/* Keying Options */
+.Greenscreen {
+    background: #00FF00;
+}
+.Bluescreen {
+    background: #0000FF;
+}
+
 
 @-webkit-keyframes moving-gradient {
     0% { background-position: left bottom; }
@@ -65,8 +73,8 @@ h1, h2, h3, h4 {
 }
 
 .fullwidth {
-	width: 1180px;
-	}
+  width: 1180px;
+  }
 
 .top {
     top: 50px;
@@ -148,69 +156,9 @@ h1, h2, h3, h4 {
     left: 50px;
 }
 
-/**************************************************/
-/*              [Boxing Score]                    */
-/**************************************************/
-.boxing-score {
-    background-color: #BC204B;
-    width: 15%;
-}
-
-.score-inner {
-    color: #fff;
-    text-align: center;
-    padding: 15px 60px 15px 60px;
-}
-
-.timer {
-    top: -2px;
-    font-size: 30px !important;
-}
-
-.score-inner h1 {
-    font-size: 35px;
-}
-
-.red-moving, .moving {
-    height: 40px;
-    width: 500%;
-
-    background: linear-gradient(to left, rgba(31,26,52,1) 0%, rgba(31,26,52,1) 71%, rgba(75,64,127,1) 85%, rgba(31,26,52,1) 98%, rgba(31,26,52,1) 100%) repeat;
-}
-
-.bar {
-  overflow-x: hidden;
-  overflow-y:hidden;
-  width: 100%;
-  border-radius: 2px;
-}
-
-.bar .gradient-overlay {
-    position: absolute;
-    width: inherit;
-    height: 40px;
-	background-color: #1f1a34;
-	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
-
-}
-
-.gradient-overlay > span {
-    position:relative;
-    padding-top: 8px;
-    padding-left: 8px;
-    text-align: center;
-    text-transform:uppercase;
-    z-index:1;
-    display:block;
-    color:#fff;
-    font-size:23px;
-    text-shadow:1px -1px 0px #000;
-}
-
 /******************************************************/
 /*              [Holding Card]                        */
 /******************************************************/
-
 
 .holdingCard.wrapper {
     top: 0;
@@ -224,6 +172,8 @@ h1, h2, h3, h4 {
     width: 100%;
     min-height: 100%;
 }
+
+
 
 /******************************************************/
 /*              [Timelord]                        */
@@ -245,6 +195,7 @@ h1, h2, h3, h4 {
 
 .holdingCard .main-block {
   position: absolute;
+  bottom: 15%;
   left: 50px;
   right: 50px;
 }
@@ -253,14 +204,11 @@ h1, h2, h3, h4 {
   max-height:50vh;
   background: rgba(0, 166, 156,0.8);
   display: none;
-  
 }
 .holdingCard .now-and-next {
   display: flex;
   align-content: stretch;
   width: 100%;
-
-
 }
 .holdingCard .now-and-next .text {
   /* background: rgba(0, 166, 156, 0.7); */
@@ -270,7 +218,6 @@ h1, h2, h3, h4 {
   text-align: left;
   width: 100%
 }
-
 .holdingCard .now-and-next .heading {
   font-family: Dinasti;
   color: #333333;
@@ -279,7 +226,7 @@ h1, h2, h3, h4 {
   padding: 0 20px;
 }
 .holdingCard .now-and-next .now {
-  font-size: 3em;
+  font-size: 2.5em;
   margin-bottom: 10px;
   padding: 0 20px 20px 20px;
 }
@@ -293,17 +240,19 @@ h1, h2, h3, h4 {
   font-size: 1.5em;
   /* background: rgba(0, 166, 156,0.7); */
   padding: 20px;
+  opacity: 1;
+  /* height: auto;*/
 }
 
 .holdingCard .now-and-next .caption {
-    font-size: 0.8em;
-    font-family: Dinasti;
-    text-align: right;
-    
-    background: #333333;
-    color: #ffffff;
-    padding: 10px 20px;
-  }
+  font-size: 0.8em;
+  font-family: Dinasti;
+  text-align: right;
+
+  background: #333333;
+  color: #ffffff;
+  padding: 10px 20px;
+}
 
 .holdingCard .now-playing {
   background: rgba(8, 134, 126, 0.8);
@@ -312,6 +261,7 @@ h1, h2, h3, h4 {
   text-align: left;
   font-size: 2em;
   padding: 15px 20px;
+  height: 2em;
 }
 .holdingCard .now-playing .prefix {
   opacity: 0.7;
@@ -320,6 +270,52 @@ h1, h2, h3, h4 {
 }
 .holdingCard .now-playing .text {
   display: inline-block;
+}
+
+
+.holdingCard.wrapper, .holdingCard .main-block, .holdingCard .now,
+.holdingCard .heading,
+.holdingCard .now-credits, .holdingCard .caption, .holdingCard .now-playing {
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+.holdingCard.lowerThird .main-block {
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* transition-delay: 1.5s; */
+}
+.holdingCard.lowerThird.wrapper {
+  top: 800px;
+  height: calc(100% - 800px)
+  /* transition-delay: 1.5s; */
+}
+.holdingCard.lowerThird .heading {
+  margin-bottom: 0;
+}
+.holdingCard.lowerThird .now {
+  font-size: 1.4em;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  /* transition-delay: 1s; */
+}
+.holdingCard.lowerThird .now-credits {
+  font-size: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  /* visibility: hidden !important; */
+  /*height: 0; */
+}
+.holdingCard.lowerThird .caption {
+  bottom: 0;
+}
+.holdingCard.lowerThird .now-playing {
+  height: 0;
+  padding: 0;
 }
 
 /**************************************************/
@@ -352,8 +348,8 @@ h1, h2, h3, h4 {
 }
 
 .white {
-	background-color: #eee !important;
-	color: #000 !important;
+  background-color: #eee !important;
+  color: #000 !important;
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
 }
 /**************************************************/
